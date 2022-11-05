@@ -6,6 +6,8 @@ Created on Tue Nov 17 21:40:41 2020
 """
 
 # 1. Library imports
+# web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app
+
 import uvicorn
 from fastapi import FastAPI
 from BankNotes import BankNote
