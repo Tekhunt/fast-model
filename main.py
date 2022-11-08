@@ -24,7 +24,8 @@ def index():
         'website': 'tekhunt.me',
         'name': 'Chiazam Ochiegbu',
         'Tech Stack': 'Full-stack',
-        'github': 'tekhunt'
+        'github': 'tekhunt',
+        
     }
 
 # 3. Expose the prediction functionality, make a prediction from the passed
