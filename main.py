@@ -23,7 +23,8 @@ def index():
     return {
         'website': 'tekhunt.me',
         'name': 'Chiazam Ochiegbu',
-        'Tech Stack': 'Full-stack'
+        'Tech Stack': 'Full-stack',
+        'github': 'tekhunt'
     }
 
 # 3. Expose the prediction functionality, make a prediction from the passed
