@@ -20,7 +20,11 @@ classifier=pickle.load(pickle_in)
 
 @app.get('/')
 def index():
-    return {'Tekhunt-ML': 'The model you can trust'}
+    return {
+        'website': 'tekhunt.me',
+        'name': 'Chiazam Ochiegbu',
+        'Tech Stack': 'Full-stack'
+    }
 
 # 3. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
