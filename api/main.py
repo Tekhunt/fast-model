@@ -6,9 +6,20 @@ from BankNotes import BankNote
 import numpy as np
 import pickle
 import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
+
+
 app = FastAPI()
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/')
 def index():
@@ -17,7 +28,7 @@ def index():
         'name': 'Chiazam Ochiegbu',
         'Tech Stack': 'Full-stack',
         'github': 'tekhunt',
-
+        'employer': 'SaksOff5th'
     }
 
 # 3. Expose the prediction functionality, make a prediction from the passed
@@ -31,13 +42,9 @@ def predict_banknote(data:BankNote):
     entropy=data['entropy']
    # print(classifier.predict([[variance,skewness,curtosis,entropy]]))
     prediction = classifier.predict([[variance,skewness,curtosis,entropy]])
-    if(prediction[0]>0.5):
-        prediction="Fake note"
-    else:
-        prediction="Its a Bank note"
-    return {
-        'prediction': prediction
-    }
+    result = "Fake note" if prediction[0]>0.5 else "Bank note"
+   
+    return result
 
 # 5. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
