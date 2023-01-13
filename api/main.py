@@ -24,15 +24,15 @@ app.add_middleware(
 @app.get('/')
 def index():
     return {
-        'website': 'tekhunt.me',
-        'name': 'Chiazam Ochiegbu',
-        'Tech Stack': 'Full-stack',
-        'github': 'tekhunt',
-        'employer': 'SaksOff5th'
+        'name': 'Tomilola',
+        'Tech Stack': 'Data Scientist',
+        'github': 'username',
+        'employer': ''
     }
 
 # 3. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
+
 @app.post('/predict')
 def predict_banknote(data:BankNote):
     data = data.dict()
