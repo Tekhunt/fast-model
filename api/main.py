@@ -24,14 +24,12 @@ app.add_middleware(
 @app.get('/')
 def index():
     return {
-        'name': 'Tomilola',
-        'Tech Stack': 'Data Scientist',
-        'github': 'username',
-        'employer': ''
-    }
+        'name': 'Chiazam',
+        'Tech Stack': 'Full-stack',
+        'github': 'https://www.github.com/tekhunt',
+        'linkedIn': 'https://www.linkedin.com/in/chiazam-ochiegbu-297b67150/',
 
-# 3. Expose the prediction functionality, make a prediction from the passed
-#    JSON data and return the predicted Bank Note with the confidence
+    }
 
 @app.post('/predict')
 def predict_banknote(data:BankNote):
@@ -42,7 +40,7 @@ def predict_banknote(data:BankNote):
     entropy=data['entropy']
    # print(classifier.predict([[variance,skewness,curtosis,entropy]]))
     prediction = classifier.predict([[variance,skewness,curtosis,entropy]])
-    result = "Fake note" if prediction[0]>0.5 else "Bank note"
+    result = "Fake note" if prediction[0]>0.5 else "Real Bank note"
    
     return result
 
